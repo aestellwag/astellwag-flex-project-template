@@ -13,9 +13,6 @@ export const actionHook = async function enhanceClickToDialTaskAttributes(flex: 
     // Adding a window Event Listener to intercept attributes that are passed via the openCTI
     window.addEventListener('message', async (event) => {
       if (event.data.apiType === 'opencti') {
-        console.warn('Window EventListner Triggered!');
-        console.warn(event);
-        console.warn('Response =', event.data.response);
         const windowResponse = event.data.response.returnValue;
         payload.taskAttributes = {
           case_id: windowResponse.recordId,
